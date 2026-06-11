@@ -4,6 +4,7 @@ import { useState } from "react"
 import Link from "next/link"
 import { PROJECTS, type ProjectCategory } from "@/lib/site-content"
 
+
 type FilterValue = "all" | ProjectCategory | "commercial-multifamily"
 
 const FILTERS: { label: string; value: FilterValue }[] = [
@@ -82,10 +83,9 @@ export default function ProjectsPage() {
           {filtered.length > 0 ? (
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {filtered.map((project) => (
-                <Link
+                <div
                   key={project.id}
-                  href="/contact"
-                  className="group block bg-[#0a0a0a] hover:bg-[#0f0f18] transition-colors duration-300"
+                  className="group block bg-[#0a0a0a]"
                 >
                   {/* Photo */}
                   <div className="relative overflow-hidden" style={{ aspectRatio: "4/3" }}>
@@ -121,7 +121,7 @@ export default function ProjectsPage() {
                       {project.type}
                     </p>
                   </div>
-                </Link>
+                </div>
               ))}
             </div>
           ) : (
