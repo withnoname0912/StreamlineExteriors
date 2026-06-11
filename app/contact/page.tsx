@@ -90,8 +90,8 @@ export default function ContactPage() {
             <img
               src="/images/projects/real-residential-siding.jpg"
               alt="Streamline Exteriors project"
-              className="absolute inset-0 w-full h-full object-cover"
-              style={{ objectPosition: "center 55%" }}
+              className="absolute inset-0 w-full h-full object-contain"
+              style={{ objectPosition: "center center" }}
             />
             {/* Dark overlay */}
             <div className="absolute inset-0 bg-black/40" />
