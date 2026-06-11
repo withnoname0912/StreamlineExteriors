@@ -6,7 +6,6 @@ import FAQGrid from "@/components/ui/FAQGrid"
 import RelatedServices from "@/components/ui/RelatedServices"
 import LocationsGrid from "@/components/ui/LocationsGrid"
 import PhotoShowcase from "@/components/ui/PhotoShowcase"
-import VideoShowcase from "@/components/ui/VideoShowcase"
 
 const service = SERVICES.find((s) => s.id === "residential")!
 
@@ -245,12 +244,6 @@ export default function ResidentialPage() {
         { src: "/images/projects/siding-cedar-3.jpg", label: "Cedar · BC Interior" },
       ]} />
 
-      <VideoShowcase
-        src="/videos/cascara-residence-drone.mp4"
-        label="West Urban Cascara Residence"
-        sublabel="BC Interior"
-        caption="Custom residential exterior · Streamline Exteriors"
-      />
 
       {/* ── Key points ── */}
       <section className="border-b border-white/[0.05]">

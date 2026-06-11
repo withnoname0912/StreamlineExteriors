@@ -6,7 +6,7 @@ import FAQGrid from "@/components/ui/FAQGrid"
 import RelatedServices from "@/components/ui/RelatedServices"
 import LocationsGrid from "@/components/ui/LocationsGrid"
 import PhotoShowcase from "@/components/ui/PhotoShowcase"
-import VideoShowcase from "@/components/ui/VideoShowcase"
+import DualVideoShowcase from "@/components/ui/DualVideoShowcase"
 
 const service = SERVICES.find((s) => s.id === "commercial")!
 
@@ -244,11 +244,19 @@ export default function CommercialMultifamilyPage() {
         { src: "/images/projects/siding-metal-3.jpg", label: "Mixed Cladding · Low-Rise" },
       ]} />
 
-      <VideoShowcase
-        src="/videos/vernon-college-housing.mp4"
-        label="Vernon College Housing"
-        sublabel="Vernon, BC"
-        caption="Multi-family exterior envelope · Streamline Exteriors"
+      <DualVideoShowcase
+        videos={[
+          {
+            src: "/videos/vernon-college-housing.mp4",
+            label: "Vernon College Housing",
+            sublabel: "Vernon, BC",
+          },
+          {
+            src: "/videos/cascara-residence-drone.mp4",
+            label: "West Urban Cascara Residence",
+            sublabel: "BC Interior",
+          },
+        ]}
       />
 
       {/* ── Why Streamline ── */}
