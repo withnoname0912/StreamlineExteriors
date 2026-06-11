@@ -956,18 +956,6 @@ export const PROJECTS: ProjectData[] = [
     featured: false,
   },
   {
-    id: "calgary-night-build",
-    title: "Calgary Custom Home",
-    location: "Calgary, AB",
-    city: "calgary",
-    category: "residential",
-    image: "/images/projects/residential-night.jpg",
-    material: "Hardie Board · Metal Panel",
-    type: "Custom New Build",
-    year: 2024,
-    featured: false,
-  },
-  {
     id: "kelowna-modern-entryway",
     title: "Kelowna Modern Custom",
     location: "Kelowna, BC",
