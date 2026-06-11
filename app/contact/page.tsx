@@ -91,33 +91,22 @@ export default function ContactPage() {
               src="/images/projects/real-residential-siding.jpg"
               alt="Streamline Exteriors project"
               className="absolute inset-0 w-full h-full object-cover"
-              style={{ objectPosition: "center 30%" }}
+              style={{ objectPosition: "center 55%" }}
             />
             {/* Dark overlay */}
-            <div className="absolute inset-0 bg-black/45" />
-            {/* Blue accent gradient */}
+            <div className="absolute inset-0 bg-black/40" />
+            {/* Blue accent */}
             <div
               className="absolute inset-0 pointer-events-none"
               style={{
-                background: "radial-gradient(ellipse at 0% 100%, rgba(20,0,139,0.28) 0%, transparent 55%)",
+                background: "radial-gradient(ellipse at 0% 100%, rgba(20,0,139,0.22) 0%, transparent 55%)",
               }}
             />
 
-            {/* Locations overlay at bottom */}
-            <div className="absolute bottom-0 left-0 right-0 p-10 border-t border-white/[0.08]">
-              <p className="text-[9px] font-semibold uppercase tracking-[0.42em] text-white/50 mb-4">
-                Service Area
-              </p>
-              <div className="grid grid-cols-3 gap-x-6 gap-y-1.5">
-                {CITIES.map((city) => (
-                  <div key={city.id} className="flex items-baseline gap-1.5">
-                    <span className="text-white/80 text-[11px] font-light tracking-wide truncate">{city.name}</span>
-                    <span className="text-white/30 text-[8.5px] uppercase tracking-[0.16em] shrink-0">
-                      {city.province === "British Columbia" ? "BC" : "AB"}
-                    </span>
-                  </div>
-                ))}
-              </div>
+            {/* Caption bottom-left */}
+            <div className="absolute bottom-10 left-10">
+              <p className="text-[9px] font-semibold uppercase tracking-[0.38em] text-white/40 mb-1">Shuswap Custom Home</p>
+              <p className="text-white/60 text-[11px] font-light tracking-wide">Vertical Fibre Cement · Salmon Arm, BC</p>
             </div>
           </div>
         </div>
