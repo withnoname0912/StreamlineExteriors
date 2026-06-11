@@ -14,7 +14,6 @@ const OFFICES = [
   {
     city: "Salmon Arm",
     province: "BC",
-    label: "Primary Office",
     phone: BUSINESS.phone.primary,
     href: BUSINESS.phone.primaryHref,
     note: "Salmon Arm · Revelstoke · Shuswap",
@@ -22,7 +21,6 @@ const OFFICES = [
   {
     city: "Vernon",
     province: "BC",
-    label: "Vernon Office",
     phone: BUSINESS.phone.vernon,
     href: BUSINESS.phone.vernonHref,
     note: "Vernon · Kelowna · Okanagan",
@@ -33,105 +31,98 @@ export default function ContactPage() {
   return (
     <main className="bg-black min-h-screen">
 
-      {/* ── Hero ── */}
-      <section className="relative pt-44 pb-16 border-b border-white/[0.05] overflow-hidden">
-        <div
-          className="absolute inset-0 pointer-events-none"
-          style={{
-            background:
-              "radial-gradient(ellipse at 18% 70%, rgba(20,0,139,0.12) 0%, rgba(0,0,0,0) 52%)",
-          }}
-        />
-        <div className="relative max-w-[1400px] mx-auto px-6 sm:px-10 lg:px-20 xl:px-28">
-          <div className="flex items-center gap-4 mb-8">
-            <div className="h-px w-10 bg-[#14008B]" />
-            <span className="text-[10px] font-medium uppercase tracking-[0.42em] text-white">
-              Free Estimates · BC & Alberta
-            </span>
-          </div>
-          <h1
-            className="font-display font-black text-white uppercase leading-[0.88] tracking-[-0.02em]"
-            style={{ fontSize: "clamp(52px, 7vw, 112px)" }}
-          >
-            Get in
-            <br />
-            <span style={{ WebkitTextStroke: "1.5px rgba(255,255,255,0.28)", color: "rgba(0,0,0,0)" }}>
-              Touch.
-            </span>
-          </h1>
-        </div>
-      </section>
+      {/* ── Full-bleed split layout ── */}
+      <div className="flex flex-col lg:flex-row min-h-screen">
 
-      {/* ── Form + Details ── */}
-      <section>
-        <div className="max-w-[1400px] mx-auto px-6 sm:px-10 lg:px-20 xl:px-28 py-20">
+        {/* ── Left: form panel ── */}
+        <div className="flex-1 flex flex-col pt-40 pb-20 px-6 sm:px-10 lg:px-16 xl:px-20 border-r border-white/[0.05]">
           <FadeIn>
-          <div className="grid grid-cols-1 lg:grid-cols-[1fr_340px] gap-16 items-start">
-
-            {/* Form */}
-            <div>
-              <div className="flex items-center gap-4 mb-10">
-                <div className="h-px w-10 bg-[#14008B]" />
-                <span className="text-[10px] font-medium uppercase tracking-[0.42em] text-white">
-                  Project Enquiry
-                </span>
-              </div>
-              <ContactForm />
+            <div className="flex items-center gap-4 mb-10">
+              <div className="h-px w-10 bg-[#14008B]" />
+              <span className="text-[10px] font-medium uppercase tracking-[0.42em] text-white">
+                Free Estimates · BC & Alberta
+              </span>
             </div>
 
-            {/* Contact sidebar */}
-            <div className="space-y-5 lg:pt-[62px]">
+            <h1
+              className="font-display font-black text-white uppercase leading-[0.88] tracking-[-0.02em] mb-14"
+              style={{ fontSize: "clamp(48px, 5.5vw, 96px)" }}
+            >
+              Get in
+              <br />
+              <span style={{ WebkitTextStroke: "1.5px rgba(255,255,255,0.28)", color: "rgba(0,0,0,0)" }}>
+                Touch.
+              </span>
+            </h1>
 
-              {/* Phones */}
-              <div className="border border-white/[0.06] p-7">
-                <p className="text-[9.5px] font-semibold uppercase tracking-[0.42em] text-white mb-6">
-                  Call Us
-                </p>
-                <div className="space-y-5">
-                  {OFFICES.map((o) => (
-                    <div key={o.city}>
-                      <p className="text-[9px] font-semibold uppercase tracking-[0.32em] text-white/40 mb-1.5">{o.note}</p>
-                      <a href={o.href} className="text-white text-[15px] font-light tracking-wide hover:text-white transition-colors duration-200 block">
-                        {o.phone}
-                      </a>
-                    </div>
-                  ))}
+            <div className="flex items-center gap-4 mb-8">
+              <div className="h-px w-10 bg-[#14008B]" />
+              <span className="text-[10px] font-medium uppercase tracking-[0.42em] text-white">
+                Project Enquiry
+              </span>
+            </div>
+
+            <ContactForm />
+
+            {/* Phone quick-links below form */}
+            <div className="flex flex-col sm:flex-row gap-6 mt-12 pt-10 border-t border-white/[0.05]">
+              {OFFICES.map((o) => (
+                <div key={o.city}>
+                  <p className="text-[9px] font-semibold uppercase tracking-[0.32em] text-white/35 mb-1.5">{o.note}</p>
+                  <a href={o.href} className="text-white text-[14px] font-light tracking-wide hover:text-white/70 transition-colors duration-200">
+                    {o.phone}
+                  </a>
                 </div>
-              </div>
-
-              {/* Email */}
-              <div className="border border-white/[0.06] p-7">
-                <p className="text-[9.5px] font-semibold uppercase tracking-[0.42em] text-white mb-4">
-                  Email
-                </p>
-                <a
-                  href={`mailto:${BUSINESS.email}`}
-                  className="text-white text-[13px] font-light tracking-wide hover:text-white transition-colors duration-200"
-                >
+              ))}
+              <div>
+                <p className="text-[9px] font-semibold uppercase tracking-[0.32em] text-white/35 mb-1.5">Email</p>
+                <a href={`mailto:${BUSINESS.email}`} className="text-white text-[14px] font-light tracking-wide hover:text-white/70 transition-colors duration-200">
                   {BUSINESS.email}
                 </a>
               </div>
-
-              {/* Locations */}
-              <div className="border border-white/[0.06] p-7">
-                <p className="text-[9.5px] font-semibold uppercase tracking-[0.42em] text-white mb-5">
-                  Locations
-                </p>
-                <div className="grid grid-cols-2 gap-x-4 gap-y-1.5">
-                  {CITIES.map((city) => (
-                    <div key={city.id} className="flex items-baseline gap-1.5 min-w-0">
-                      <span className="text-white text-[11.5px] font-light tracking-wide truncate">{city.name}</span>
-                      <span className="text-white/30 text-[9px] uppercase tracking-[0.18em] shrink-0">{city.province === "British Columbia" ? "BC" : "AB"}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
             </div>
-          </div>
           </FadeIn>
         </div>
-      </section>
+
+        {/* ── Right: photo panel ── */}
+        <div className="hidden lg:block lg:w-[42%] xl:w-[46%] relative">
+          <div className="sticky top-0 h-screen overflow-hidden">
+            <img
+              src="/images/projects/real-residential-modern.jpg"
+              alt="Streamline Exteriors project"
+              className="absolute inset-0 w-full h-full object-cover"
+              style={{ objectPosition: "center 30%" }}
+            />
+            {/* Dark overlay */}
+            <div className="absolute inset-0 bg-black/45" />
+            {/* Blue accent gradient */}
+            <div
+              className="absolute inset-0 pointer-events-none"
+              style={{
+                background: "radial-gradient(ellipse at 0% 100%, rgba(20,0,139,0.28) 0%, transparent 55%)",
+              }}
+            />
+
+            {/* Locations overlay at bottom */}
+            <div className="absolute bottom-0 left-0 right-0 p-10 border-t border-white/[0.08]">
+              <p className="text-[9px] font-semibold uppercase tracking-[0.42em] text-white/50 mb-4">
+                Service Area
+              </p>
+              <div className="grid grid-cols-3 gap-x-6 gap-y-1.5">
+                {CITIES.map((city) => (
+                  <div key={city.id} className="flex items-baseline gap-1.5">
+                    <span className="text-white/80 text-[11px] font-light tracking-wide truncate">{city.name}</span>
+                    <span className="text-white/30 text-[8.5px] uppercase tracking-[0.16em] shrink-0">
+                      {city.province === "British Columbia" ? "BC" : "AB"}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
 
     </main>
   )
