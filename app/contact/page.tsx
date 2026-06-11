@@ -88,7 +88,7 @@ export default function ContactPage() {
         <div className="hidden lg:flex lg:flex-col lg:w-[42%] xl:w-[46%] sticky top-0 h-screen overflow-hidden">
 
           {/* Photo */}
-          <div className="relative overflow-hidden" style={{ flex: "0 0 58%" }}>
+          <div className="relative overflow-hidden" style={{ flex: "0 0 48%" }}>
             <img
               src="/images/projects/real-residential-siding.jpg"
               alt="Streamline Exteriors project"
@@ -104,7 +104,7 @@ export default function ContactPage() {
           </div>
 
           {/* Info below photo */}
-          <div className="flex flex-col justify-center flex-1 px-10 py-8 border-t border-white/[0.06] space-y-7">
+          <div className="flex flex-col flex-1 px-10 py-7 border-t border-white/[0.06] space-y-5 overflow-y-auto">
 
             {/* Phones */}
             <div>
