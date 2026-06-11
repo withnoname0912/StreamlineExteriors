@@ -117,11 +117,11 @@ export default function ContactPage() {
                 <p className="text-[9.5px] font-semibold uppercase tracking-[0.42em] text-white mb-5">
                   Locations
                 </p>
-                <div className="space-y-1.5">
+                <div className="grid grid-cols-2 gap-x-4 gap-y-1.5">
                   {CITIES.map((city) => (
-                    <div key={city.id} className="flex items-center justify-between">
-                      <span className="text-white text-[12px] font-light tracking-wide">{city.name}</span>
-                      <span className="text-white/40 text-[10px] uppercase tracking-[0.24em]">{city.province}</span>
+                    <div key={city.id} className="flex items-baseline gap-1.5 min-w-0">
+                      <span className="text-white text-[11.5px] font-light tracking-wide truncate">{city.name}</span>
+                      <span className="text-white/30 text-[9px] uppercase tracking-[0.18em] shrink-0">{city.province === "British Columbia" ? "BC" : "AB"}</span>
                     </div>
                   ))}
                 </div>
