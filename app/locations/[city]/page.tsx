@@ -292,16 +292,16 @@ export default async function CityPage({ params }: Props) {
                       {project.location}
                     </p>
 
-                    <ul className="space-y-2 mb-8">
-                      {project.scope.slice(0, 3).map((item, i) => (
-                        <li key={i} className="flex items-start gap-2.5">
-                          <div className="w-[3px] h-[3px] rounded-full bg-[#14008B] mt-[5px] shrink-0" />
-                          <span className="text-white text-[12px] font-light leading-snug tracking-wide">
-                            {item}
-                          </span>
-                        </li>
-                      ))}
-                    </ul>
+                    <div className="space-y-1.5 mb-8">
+                      <p className="text-white text-[12px] font-light leading-snug tracking-wide flex items-start gap-2.5">
+                        <div className="w-[3px] h-[3px] rounded-full bg-[#14008B] mt-[5px] shrink-0" />
+                        {project.material}
+                      </p>
+                      <p className="text-white/50 text-[11px] font-light leading-snug tracking-wide flex items-start gap-2.5">
+                        <div className="w-[3px] h-[3px] rounded-full bg-white/20 mt-[5px] shrink-0" />
+                        {project.type}
+                      </p>
+                    </div>
 
                     <div className="flex items-center gap-2 text-[#14008B] text-[10px] font-semibold uppercase tracking-[0.3em] opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                       <span>View Projects</span>
