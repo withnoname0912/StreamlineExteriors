@@ -99,7 +99,7 @@ export default function ContactPage() {
             <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse at 0% 100%, rgba(20,0,139,0.2) 0%, transparent 55%)" }} />
             <div className="absolute bottom-5 left-7">
               <p className="text-[9px] font-semibold uppercase tracking-[0.38em] text-white/40 mb-0.5">Shuswap Custom Home</p>
-              <p className="text-white/55 text-[11px] font-light tracking-wide">Vertical Fibre Cement · Salmon Arm, BC</p>
+              <p className="text-white/55 text-[11px] font-light tracking-wide">Vertical Metal Standing Seam · Salmon Arm, BC</p>
             </div>
           </div>
 

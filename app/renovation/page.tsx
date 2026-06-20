@@ -251,19 +251,6 @@ export default function RenovationPage() {
                   ))}
                 </ul>
               </div>
-              <div className="border border-white/[0.06] p-7">
-                <p className="text-[9.5px] font-semibold uppercase tracking-[0.42em] text-white mb-6">
-                  Credentials
-                </p>
-                <ul className="space-y-3">
-                  {CREDENTIALS.slice(0, 4).map((c, i) => (
-                    <li key={i} className="flex items-start gap-3">
-                      <div className="w-[3px] h-[3px] rounded-full bg-[#14008B] mt-[7px] shrink-0" />
-                      <span className="text-white text-[11.5px] font-light leading-relaxed tracking-wide">{c}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
             </div>
           </div>
           </FadeIn>

@@ -35,7 +35,7 @@ export default function ServicesPage() {
             </h1>
           </div>
           <p className="text-white text-[14px] font-light leading-[1.78] tracking-wide max-w-[360px] sm:pb-2">
-            Five services. One standard.<br />
+            Four services. One standard.<br />
             BC and Alberta since 1994.
           </p>
         </div>
@@ -62,7 +62,7 @@ export default function ServicesPage() {
               </span>
             </p>
             <p className="text-white text-[15px] font-light leading-relaxed tracking-wide max-w-[440px]">
-              We assess your project and recommend the right scope — at no charge. One contractor across all five services.
+              We assess your project and recommend the right scope — at no charge. One contractor across all four services.
             </p>
           </div>
           <div className="flex flex-col gap-3 lg:min-w-[220px]">

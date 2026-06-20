@@ -72,7 +72,7 @@ export default function ServicesGrid() {
             </h2>
           </div>
           <p className="text-white text-[14px] font-light leading-[1.78] tracking-wide max-w-[360px] sm:pb-2">
-            Five services. One standard.<br />
+            Four services. One standard.<br />
             BC and Alberta since 1994.
           </p>
         </div>

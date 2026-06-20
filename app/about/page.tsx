@@ -82,7 +82,7 @@ const CREDENTIAL_DETAILS = [
   },
   {
     title: "Bonded & Insured",
-    body: "Streamline Exteriors is the top-volume distributor of GutterGlove in Canada — the stainless-steel micro-mesh guard top-rated by Consumer Reports. Our volume reflects three decades of seamless gutter installations across BC and Alberta.",
+    body: "Streamline Exteriors carries $10M commercial general liability insurance and has maintained continuous bonding since 1994. This coverage level is required by most property managers and general contractors for multi-family and commercial exterior work — and we carry it on every project, residential or commercial.",
   },
   {
     title: "Step Code Compliant Installer",
@@ -95,10 +95,6 @@ const CREDENTIAL_DETAILS = [
   {
     title: "Continuous WCB Coverage",
     body: "WorkSafeBC coverage maintained continuously since 1994. Our crews are never working outside of WorkSafeBC jurisdiction — giving property owners and general contractors the documentation they need before work begins.",
-  },
-  {
-    title: "Alu-Rex Authorized Installer",
-    body: "Authorized installer for Alu-Rex continuous hanger systems — DoublePro® and T-Rex® — which mount seamless gutters without the weak points of spike-and-hanger methods. Alu-Rex hangers are the reason our gutter installations don't sag.",
   },
 ]
 

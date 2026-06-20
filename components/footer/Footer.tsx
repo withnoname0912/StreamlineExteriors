@@ -178,7 +178,6 @@ export default function Footer() {
             </div>
             {[
               "Family owned since 1994",
-              "Gentek Certified — 1 of 200 in Canada",
               "Bonded",
               "$10M Liability Insurance",
               "Continuous WCB Coverage",
