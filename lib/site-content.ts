@@ -944,18 +944,6 @@ export const PROJECTS: ProjectData[] = [
     featured: false,
   },
   {
-    id: "kelowna-farmhouse",
-    title: "Kelowna Farmhouse Exterior",
-    location: "Kelowna, BC",
-    city: "kelowna",
-    category: "residential",
-    image: "/images/projects/residential-farmhouse.jpg",
-    material: "James Hardie Board & Batten",
-    type: "New Build",
-    year: 2022,
-    featured: false,
-  },
-  {
     id: "kelowna-modern-entryway",
     title: "Kelowna Modern Custom",
     location: "Kelowna, BC",
