@@ -34,7 +34,7 @@ const SERVICES: Service[] = [
     href: "/commercial",
     gradient:
       "radial-gradient(ellipse at 86% 38%, rgba(20,0,139,0.22) 0%, rgba(0,0,0,0) 52%), radial-gradient(ellipse at 28% 82%, rgba(10,0,60,0.16) 0%, rgba(0,0,0,0) 48%)",
-    photo: "/images/projects/real-multifamily.jpg",
+    photo: "/images/projects/multifamily-keystone-front.jpg",
     photoPos: "center 40%",
   },
   {

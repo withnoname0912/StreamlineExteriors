@@ -269,10 +269,10 @@ export default function AboutPage() {
             </div>
           </div>
 
-          {/* Centre — commercial lakeside */}
+          {/* Centre — commercial multifamily */}
           <div className="group relative overflow-hidden h-full">
             <img
-              src="/images/projects/commercial-lakeside.jpg"
+              src="/images/projects/multifamily-mountain-complex.jpg"
               alt="Commercial exterior — BC"
               className="absolute inset-0 w-full h-full object-cover object-center transition-transform duration-[1200ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.04]"
             />
