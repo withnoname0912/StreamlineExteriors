@@ -132,29 +132,13 @@ export default function ServicesGrid() {
 
                 <div className="relative z-10 px-10 py-14 sm:px-14 lg:px-16 xl:px-20 2xl:px-24">
 
-                  {/* Eyebrow */}
-                  <div className="flex items-center gap-3 mb-7">
-                    <div className="h-px w-5 shrink-0 bg-[#14008B]" />
-                    <span className="text-[9px] font-semibold uppercase tracking-[0.44em] text-[#14008B]">
-                      {s.headline}
-                    </span>
-                  </div>
-
                   {/* Service name */}
                   <h3
-                    className="font-display font-black uppercase leading-[0.88] tracking-[-0.02em] text-white mb-6"
+                    className="font-display font-black uppercase leading-[0.88] tracking-[-0.02em] text-white mb-10"
                     style={{ fontSize: "clamp(52px, 6vw, 96px)" }}
                   >
                     {s.label}
                   </h3>
-
-                  {/* Sub */}
-                  <p className="text-white text-[9px] font-medium uppercase tracking-[0.3em] mb-8">
-                    {s.sub}
-                  </p>
-
-                  {/* Divider */}
-                  <div className="w-12 h-px bg-white/[0.08] mb-8" />
 
                   {/* Body */}
                   <p className="text-white text-[14px] font-light leading-[1.86] tracking-wide max-w-[400px] mb-10">

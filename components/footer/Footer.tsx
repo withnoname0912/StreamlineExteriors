@@ -270,31 +270,6 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* ── Approved installer strip ── */}
-      <motion.div
-        className="relative border-t border-white/[0.045]"
-        initial={{ opacity: 0 }}
-        animate={isInView ? { opacity: 1 } : {}}
-        transition={{ delay: 0.46, duration: 0.8, ease: EASE }}
-      >
-        <div className="max-w-[1400px] mx-auto px-6 sm:px-10 lg:px-20 xl:px-28 py-5">
-          <div className="flex flex-wrap items-center gap-x-7 gap-y-3">
-            <span className="text-white text-[9px] font-medium uppercase tracking-[0.4em] shrink-0 mr-1">
-              Approved Installers
-            </span>
-            <span className="text-white/[0.08] hidden sm:block">·</span>
-            {SUPPLIERS.map((name, i) => (
-              <span
-                key={i}
-                className="text-white text-[9.5px] font-medium uppercase tracking-[0.24em]"
-              >
-                {name}
-              </span>
-            ))}
-          </div>
-        </div>
-      </motion.div>
-
       {/* ── Copyright bar ── */}
       <div className="relative border-t border-white/[0.04]">
         <div className="max-w-[1400px] mx-auto px-6 sm:px-10 lg:px-20 xl:px-28 py-5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">

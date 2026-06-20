@@ -242,45 +242,45 @@ export default function Hero({ imageSrc, imageAlt, slides }: HeroProps) {
 
           {/* CTAs */}
           <motion.div variants={fadeUp} className="flex flex-col items-start gap-4 sm:flex-row">
-            {/* Primary */}
+            {/* Primary — Get Estimate */}
             {isLight ? (
               <Link
-                href="/projects"
+                href="/contact"
                 className="group relative inline-flex items-center gap-3 overflow-hidden bg-[#14008B] px-8 py-[15px] text-[11px] font-semibold uppercase tracking-[0.26em] text-white"
               >
                 <span className="absolute inset-0 bg-black translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]" />
-                <span className="relative">View Projects</span>
+                <span className="relative">Get Estimate</span>
                 <span className="relative"><ArrowRight /></span>
               </Link>
             ) : (
               <Link
-                href="/projects"
+                href="/contact"
                 className="group relative inline-flex items-center gap-3 overflow-hidden border border-white/22 px-8 py-[15px] text-[11px] font-semibold uppercase tracking-[0.26em] text-white"
               >
                 <span className="absolute inset-0 bg-white translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]" />
-                <span className="relative group-hover:text-black transition-colors duration-300">View Projects</span>
+                <span className="relative group-hover:text-black transition-colors duration-300">Get Estimate</span>
                 <span className="relative group-hover:text-black transition-colors duration-300"><ArrowRight /></span>
               </Link>
             )}
 
-            {/* Secondary */}
+            {/* Secondary — View Projects */}
             {isLight ? (
               <Link
-                href="/contact"
+                href="/projects"
                 className="group relative inline-flex items-center gap-3 overflow-hidden border border-black/40 px-8 py-[15px] text-[11px] font-semibold uppercase tracking-[0.26em] text-black/75"
               >
                 <span className="absolute inset-0 bg-black translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]" />
-                <span className="relative group-hover:text-white transition-colors duration-300">Get Estimate</span>
+                <span className="relative group-hover:text-white transition-colors duration-300">View Projects</span>
                 <span className="relative group-hover:text-white transition-colors duration-300"><ArrowRight /></span>
               </Link>
             ) : (
               <Link
-                href="/contact"
+                href="/projects"
                 className="group inline-flex items-center gap-3 px-8 py-[15px] text-[11px] font-semibold uppercase tracking-[0.26em] text-white transition-colors duration-300 hover:text-white"
               >
                 <span className="relative">
-                  Get Estimate
-                  <span className="absolute -bottom-px left-0 h-px w-0 bg-[#14008B] transition-all duration-300 ease-out group-hover:w-full" />
+                  View Projects
+                  <span className="absolute -bottom-px left-0 h-px w-0 bg-white/40 transition-all duration-300 ease-out group-hover:w-full" />
                 </span>
                 <span className="translate-x-0 transition-transform duration-300 group-hover:translate-x-1.5">
                   <ArrowRight />
