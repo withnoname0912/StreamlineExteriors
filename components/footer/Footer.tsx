@@ -208,7 +208,7 @@ export default function Footer() {
               <div className="flex items-center lg:justify-end gap-2 mt-3">
                 <span className="text-white text-[9px] uppercase tracking-[0.32em]">Since</span>
                 <span
-                  className="font-display font-black text-[#14008B]/60 uppercase leading-none"
+                  className="font-display font-black text-white/55 uppercase leading-none"
                   style={{ fontSize: "clamp(18px, 2vw, 28px)" }}
                 >
                   1994

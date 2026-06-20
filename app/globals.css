@@ -182,3 +182,11 @@
     max-width: 100vw;
   }
 }
+
+/* ── Mobile readability: outline headings become solid white on small screens ── */
+@media (max-width: 1023px) {
+  [style*="-webkit-text-stroke"] {
+    -webkit-text-stroke: 0 !important;
+    color: rgba(255, 255, 255, 0.62) !important;
+  }
+}

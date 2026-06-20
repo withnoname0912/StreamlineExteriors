@@ -193,7 +193,7 @@ export default function Hero({ imageSrc, imageAlt, slides }: HeroProps) {
             <div className="h-px w-10 shrink-0 bg-[#14008B]" />
             <p
               className="text-[10px] font-medium uppercase tracking-[0.42em]"
-              style={{ color: isLight ? "rgba(0,0,0,0.5)" : "rgba(255,255,255,0.45)" }}
+              style={{ color: isLight ? "rgba(0,0,0,0.6)" : "rgba(255,255,255,0.78)" }}
             >
               Western Canadian Exterior Systems
             </p>
@@ -234,7 +234,7 @@ export default function Hero({ imageSrc, imageAlt, slides }: HeroProps) {
           <motion.p
             variants={fadeUp}
             className="mb-12 max-w-[400px] text-[15px] font-light leading-relaxed tracking-wide"
-            style={{ color: isLight ? "rgba(0,0,0,0.55)" : "rgba(255,255,255,0.52)" }}
+            style={{ color: isLight ? "rgba(0,0,0,0.65)" : "rgba(255,255,255,0.85)" }}
           >
             Premium residential and commercial exterior solutions
             <br className="hidden sm:block" /> across BC &amp; Alberta.
