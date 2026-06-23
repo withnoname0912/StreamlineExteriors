@@ -1,11 +1,11 @@
 "use client"
 
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import Link from "next/link"
-import { PROJECTS, type ProjectCategory } from "@/lib/site-content"
+import type { GalleryProject } from "@/lib/projects-db"
 
-
-type FilterValue = "all" | ProjectCategory | "commercial-multifamily"
+type Category = GalleryProject["category"]
+type FilterValue = "all" | Category | "commercial-multifamily"
 
 const FILTERS: { label: string; value: FilterValue }[] = [
   { label: "All", value: "all" },
@@ -15,7 +15,7 @@ const FILTERS: { label: string; value: FilterValue }[] = [
   { label: "Renovation", value: "renovation" },
 ]
 
-const CATEGORY_LABELS: Record<ProjectCategory, string> = {
+const CATEGORY_LABELS: Record<Category, string> = {
   residential: "Residential",
   commercial: "Commercial",
   multifamily: "Multifamily",
@@ -24,14 +24,23 @@ const CATEGORY_LABELS: Record<ProjectCategory, string> = {
 }
 
 export default function ProjectsPage() {
+  const [projects, setProjects] = useState<GalleryProject[]>([])
+  const [loading, setLoading] = useState(true)
   const [active, setActive] = useState<FilterValue>("all")
+
+  useEffect(() => {
+    fetch("/api/projects")
+      .then((r) => r.json())
+      .then((data) => { setProjects(data); setLoading(false) })
+      .catch(() => setLoading(false))
+  }, [])
 
   const filtered =
     active === "all"
-      ? PROJECTS
+      ? projects
       : active === "commercial-multifamily"
-        ? PROJECTS.filter((p) => p.category === "commercial" || p.category === "multifamily")
-        : PROJECTS.filter((p) => p.category === active)
+        ? projects.filter((p) => p.category === "commercial" || p.category === "multifamily")
+        : projects.filter((p) => p.category === active)
 
   return (
     <main className="bg-black min-h-screen">
@@ -80,7 +89,13 @@ export default function ProjectsPage() {
       {/* ── Grid ── */}
       <section className="px-6 sm:px-10 lg:px-20 xl:px-28 pb-28">
         <div className="max-w-[1400px] mx-auto">
-          {filtered.length > 0 ? (
+          {loading ? (
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              {[...Array(6)].map((_, i) => (
+                <div key={i} className="bg-[#0a0a0a] animate-pulse" style={{ aspectRatio: "4/3" }} />
+              ))}
+            </div>
+          ) : filtered.length > 0 ? (
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {filtered.map((project) => (
                 <div
@@ -93,6 +108,7 @@ export default function ProjectsPage() {
                       src={project.image}
                       alt={project.title}
                       className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.04]"
+                      style={{ objectPosition: `${project.imageX ?? 50}% ${project.imageY ?? 50}%` }}
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
 

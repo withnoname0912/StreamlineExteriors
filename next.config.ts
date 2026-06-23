@@ -30,6 +30,9 @@ const nextConfig: NextConfig = {
     ]
   },
 
+  // Allow larger photo uploads (up to 20 MB)
+  serverExternalPackages: [],
+
   async redirects() {
     return [
       {
