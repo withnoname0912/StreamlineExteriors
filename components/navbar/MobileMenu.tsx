@@ -144,7 +144,7 @@ export default function MobileMenu({ isOpen, onClose }: Props) {
                               <div className="py-4 space-y-6">
                                 {item.columns.map((col) => (
                                   <div key={col.heading}>
-                                    <p className="text-[#14008B] text-[10px] font-semibold tracking-[0.3em] uppercase mb-3">
+                                    <p className="text-white/40 text-[10px] font-semibold tracking-[0.3em] uppercase mb-3">
                                       {col.heading}
                                     </p>
                                     <ul className="space-y-2">

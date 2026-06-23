@@ -115,8 +115,8 @@ export default function Suppliers() {
         transition={{ delay: 0.28, duration: 0.7, ease: EASE }}
         className="border-t border-white/[0.04]"
       >
-        <LogoRow speed={40} />
-        <LogoRow speed={52} reverse />
+        <LogoRow speed={18} />
+        <LogoRow speed={24} reverse />
       </motion.div>
 
       {/* ── Bottom strip ── */}

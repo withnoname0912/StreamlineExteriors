@@ -162,7 +162,7 @@ export default function LocationsPage() {
                 <div className="absolute left-0 inset-y-0 w-[3px] bg-[#14008B] scale-y-0 group-hover:scale-y-100 origin-bottom transition-transform duration-500" />
 
                 <div className="flex items-start justify-between gap-4 mb-5">
-                  <span className="text-[9px] font-semibold uppercase tracking-[0.32em] text-[#14008B]">
+                  <span className="text-[9px] font-semibold uppercase tracking-[0.32em] text-white/40">
                     {city.region}
                   </span>
                   <span className="font-mono text-[9px] tracking-[0.24em] text-white">BC</span>

@@ -211,7 +211,7 @@ function CityInfoPanel({ city }: { city: City | null }) {
     <div>
       <div className="flex items-center gap-3 mb-3">
         <div className="w-[3px] h-5 bg-[#14008B] shrink-0" />
-        <p className="text-[9.5px] font-semibold uppercase tracking-[0.36em] text-[#14008B]">
+        <p className="text-[9.5px] font-semibold uppercase tracking-[0.36em] text-white/40">
           {city.province} · {city.region}
         </p>
       </div>

@@ -278,7 +278,7 @@ export default function Footer() {
             animate={isInView ? { opacity: 1 } : {}}
             transition={{ delay: 0.54, duration: 0.7, ease: EASE }}
           >
-            © {new Date().getFullYear()} Streamline Exteriors Ltd. All rights reserved.
+            © {BUSINESS.founded}–{new Date().getFullYear()} Streamline Exteriors Ltd. All rights reserved.
           </motion.p>
 
           <motion.div

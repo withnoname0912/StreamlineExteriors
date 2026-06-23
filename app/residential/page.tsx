@@ -202,12 +202,12 @@ export default function ResidentialPage() {
               <div className="flex items-center gap-3 mb-5">
                 <span className="font-mono text-[9px] tracking-[0.28em] text-white">01</span>
                 <div className="h-px flex-1 bg-white/[0.06]" />
-                <span className="text-[9px] font-semibold uppercase tracking-[0.32em] text-[#14008B] opacity-60">Primary System</span>
+                <span className="text-[9px] font-semibold uppercase tracking-[0.32em] text-white/40">Primary System</span>
               </div>
               <h3 className="font-display font-bold text-white uppercase text-[18px] tracking-[0.05em] mb-1.5">
                 {SIDING_TYPES[0].name}
               </h3>
-              <p className="text-[#14008B] text-[9px] font-semibold uppercase tracking-[0.32em] mb-5 opacity-70">
+              <p className="text-white/40 text-[9px] font-semibold uppercase tracking-[0.32em] mb-5">
                 {SIDING_TYPES[0].brands}
               </p>
               <p className="text-white text-[13px] font-light leading-relaxed tracking-wide max-w-[660px]">
@@ -225,7 +225,7 @@ export default function ResidentialPage() {
                 <h3 className="font-display font-bold text-white uppercase text-[14px] tracking-[0.06em] mb-1.5">
                   {s.name}
                 </h3>
-                <p className="text-[#14008B] text-[9px] font-semibold uppercase tracking-[0.32em] mb-4 opacity-70">
+                <p className="text-white/40 text-[9px] font-semibold uppercase tracking-[0.32em] mb-4">
                   {s.brands}
                 </p>
                 <p className="text-white text-[12.5px] font-light leading-relaxed tracking-wide">
