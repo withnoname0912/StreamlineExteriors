@@ -38,6 +38,28 @@ const BLANK_FORM = (): Omit<GalleryProject, "id"> => ({
   featured: false,
 })
 
+// ─── Client-side image resize → base64 ────────────────────────────────────────
+
+function resizeToBase64(file: File, maxWidth = 1400): Promise<string> {
+  return new Promise((resolve, reject) => {
+    const img = new Image()
+    const objectUrl = URL.createObjectURL(file)
+    img.onload = () => {
+      let w = img.width
+      let h = img.height
+      if (w > maxWidth) { h = Math.round((h * maxWidth) / w); w = maxWidth }
+      const canvas = document.createElement("canvas")
+      canvas.width = w
+      canvas.height = h
+      canvas.getContext("2d")!.drawImage(img, 0, 0, w, h)
+      URL.revokeObjectURL(objectUrl)
+      resolve(canvas.toDataURL("image/jpeg", 0.82))
+    }
+    img.onerror = () => { URL.revokeObjectURL(objectUrl); reject(new Error("load failed")) }
+    img.src = objectUrl
+  })
+}
+
 // ─── Helpers ──────────────────────────────────────────────────────────────────
 
 function slugify(str: string): string {
@@ -269,22 +291,15 @@ function ProjectForm({
     setUploading(true)
     const local = URL.createObjectURL(file)
     setPreviewUrl(local)
-    const fd = new FormData()
-    fd.append("file", file)
-    const res = await fetch("/api/admin/upload", {
-      method: "POST",
-      headers: { Authorization: `Bearer ${token}` },
-      body: fd,
-    })
-    setUploading(false)
-    if (res.ok) {
-      const { url } = await res.json()
-      set("image", url)
-      setPreviewUrl(url)
-    } else {
-      setError("Upload failed. Try again.")
+    try {
+      const dataUrl = await resizeToBase64(file)
+      set("image", dataUrl)
+      setPreviewUrl(dataUrl)
+    } catch {
+      setError("Failed to process image. Try another file.")
       setPreviewUrl(form.image)
     }
+    setUploading(false)
   }
 
   function onFileChange(e: React.ChangeEvent<HTMLInputElement>) {
@@ -448,49 +463,6 @@ function ProjectForm({
                 </option>
               ))}
             </select>
-          </div>
-
-          {/* Year */}
-          <div>
-            <label className="block text-[10px] font-semibold uppercase tracking-[0.3em] text-white/40 mb-2">
-              Year
-            </label>
-            <input
-              type="number"
-              value={form.year}
-              onChange={(e) => set("year", Number(e.target.value))}
-              min={2000}
-              max={2100}
-              className="w-full bg-[#141414] border border-white/10 text-white text-[13px] px-4 py-3 outline-none focus:border-[#14008B] transition-colors"
-            />
-          </div>
-
-          {/* Location */}
-          <div>
-            <label className="block text-[10px] font-semibold uppercase tracking-[0.3em] text-white/40 mb-2">
-              Location
-            </label>
-            <input
-              type="text"
-              value={form.location}
-              onChange={(e) => set("location", e.target.value)}
-              placeholder="e.g. Kelowna, BC"
-              className="w-full bg-[#141414] border border-white/10 text-white text-[13px] px-4 py-3 outline-none focus:border-[#14008B] transition-colors placeholder:text-white/20"
-            />
-          </div>
-
-          {/* City slug */}
-          <div>
-            <label className="block text-[10px] font-semibold uppercase tracking-[0.3em] text-white/40 mb-2">
-              City (slug)
-            </label>
-            <input
-              type="text"
-              value={form.city}
-              onChange={(e) => set("city", e.target.value)}
-              placeholder="e.g. kelowna"
-              className="w-full bg-[#141414] border border-white/10 text-white text-[13px] px-4 py-3 outline-none focus:border-[#14008B] transition-colors placeholder:text-white/20"
-            />
           </div>
 
           {/* Material */}
