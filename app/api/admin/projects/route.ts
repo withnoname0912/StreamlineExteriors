@@ -11,19 +11,19 @@ function checkAuth(req: Request): boolean {
 
 export async function GET(req: Request) {
   if (!checkAuth(req)) return NextResponse.json({ error: "Unauthorized" }, { status: 401 })
-  return NextResponse.json(readProjects())
+  return NextResponse.json(await readProjects())
 }
 
 export async function POST(req: Request) {
   if (!checkAuth(req)) return NextResponse.json({ error: "Unauthorized" }, { status: 401 })
   const body: GalleryProject = await req.json()
-  const projects = readProjects()
+  const projects = await readProjects()
 
   if (projects.find((p) => p.id === body.id)) {
     return NextResponse.json({ error: "ID already exists" }, { status: 409 })
   }
 
   projects.push(body)
-  writeProjects(projects)
+  await writeProjects(projects)
   return NextResponse.json(body, { status: 201 })
 }

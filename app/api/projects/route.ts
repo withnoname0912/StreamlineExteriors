@@ -4,6 +4,6 @@ import { readProjects } from "@/lib/projects-db"
 export const dynamic = "force-dynamic"
 
 export async function GET() {
-  const projects = readProjects()
+  const projects = await readProjects()
   return NextResponse.json(projects)
 }

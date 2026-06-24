@@ -1,7 +1,6 @@
-import { readFileSync, writeFileSync, mkdirSync } from "fs"
+import { kv } from "@vercel/kv"
+import { readFileSync } from "fs"
 import { join } from "path"
-
-const DB_PATH = join(process.cwd(), "data", "projects.json")
 
 export type GalleryProject = {
   id: string
@@ -18,15 +17,31 @@ export type GalleryProject = {
   featured: boolean
 }
 
-export function readProjects(): GalleryProject[] {
+const KV_KEY = "projects"
+
+function loadLocalProjects(): GalleryProject[] {
   try {
-    return JSON.parse(readFileSync(DB_PATH, "utf-8"))
+    const raw = readFileSync(join(process.cwd(), "data", "projects.json"), "utf-8")
+    return JSON.parse(raw)
   } catch {
     return []
   }
 }
 
-export function writeProjects(projects: GalleryProject[]): void {
-  mkdirSync(join(process.cwd(), "data"), { recursive: true })
-  writeFileSync(DB_PATH, JSON.stringify(projects, null, 2))
+export async function readProjects(): Promise<GalleryProject[]> {
+  try {
+    const data = await kv.get<GalleryProject[]>(KV_KEY)
+    if (data && data.length > 0) return data
+    // First boot: seed KV from the bundled JSON
+    const seed = loadLocalProjects()
+    if (seed.length > 0) await kv.set(KV_KEY, seed)
+    return seed
+  } catch {
+    // Local dev fallback (no KV configured)
+    return loadLocalProjects()
+  }
+}
+
+export async function writeProjects(projects: GalleryProject[]): Promise<void> {
+  await kv.set(KV_KEY, projects)
 }
