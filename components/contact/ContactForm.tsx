@@ -48,6 +48,7 @@ export default function ContactForm() {
   })
   const [submitted, setSubmitted] = useState(false)
   const [submitting, setSubmitting] = useState(false)
+  const [error, setError] = useState("")
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>,
@@ -58,11 +59,19 @@ export default function ContactForm() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setSubmitting(true)
-    // Connect to your form service here (Formspree, EmailJS, custom API, etc.)
-    // Example: await fetch("https://formspree.io/f/YOUR_ID", { method: "POST", body: JSON.stringify(form) })
-    await new Promise((r) => setTimeout(r, 800))
+    setError("")
+    try {
+      const res = await fetch("https://formspree.io/f/mlgygrre", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify(form),
+      })
+      if (!res.ok) throw new Error()
+      setSubmitted(true)
+    } catch {
+      setError("Something went wrong. Please call us or try again.")
+    }
     setSubmitting(false)
-    setSubmitted(true)
   }
 
   if (submitted) {
@@ -205,7 +214,7 @@ export default function ContactForm() {
 
       <div className="pt-2 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-5">
         <p className="text-white text-[11px] font-light tracking-wide">
-          We respond within one business day.
+          {error ? <span className="text-red-400">{error}</span> : "We respond within one business day."}
         </p>
         <button
           type="submit"
