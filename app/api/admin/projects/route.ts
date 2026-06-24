@@ -3,7 +3,7 @@ import { readProjects, writeProjects, type GalleryProject } from "@/lib/projects
 
 export const dynamic = "force-dynamic"
 
-const PASSWORD = process.env.ADMIN_PASSWORD || "streamline2024"
+const PASSWORD = process.env.ADMIN_PASSWORD || ""
 
 function checkAuth(req: Request): boolean {
   return req.headers.get("authorization") === `Bearer ${PASSWORD}`
