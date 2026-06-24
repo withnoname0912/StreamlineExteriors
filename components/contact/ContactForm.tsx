@@ -66,10 +66,14 @@ export default function ContactForm() {
         headers: { "Content-Type": "application/json", Accept: "application/json" },
         body: JSON.stringify(form),
       })
-      if (!res.ok) throw new Error()
-      setSubmitted(true)
+      const data = await res.json()
+      if (!res.ok) {
+        setError(data?.error || data?.errors?.[0]?.message || `Error ${res.status}`)
+      } else {
+        setSubmitted(true)
+      }
     } catch {
-      setError("Something went wrong. Please call us or try again.")
+      setError("Network error. Please call us or try again.")
     }
     setSubmitting(false)
   }
