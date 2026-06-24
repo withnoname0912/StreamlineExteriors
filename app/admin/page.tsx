@@ -581,7 +581,6 @@ function ProjectCard({
           {project.title}
         </h3>
         <p className="text-white/50 text-[10px] tracking-wide truncate">{project.material}</p>
-        <p className="text-white/25 text-[9px] tracking-wide mt-0.5">{project.location} · {project.year}</p>
       </div>
 
       {/* Actions */}
