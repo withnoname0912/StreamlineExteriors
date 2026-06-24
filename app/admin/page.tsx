@@ -268,7 +268,7 @@ function ProjectForm({
 }: {
   initial: GalleryProject | null
   token: string
-  onSave: () => void
+  onSave: (saved: GalleryProject) => void
   onCancel: () => void
 }) {
   const isEdit = !!initial
@@ -336,7 +336,7 @@ function ProjectForm({
     )
     setSaving(false)
     if (res.ok) {
-      onSave()
+      onSave(payload)
     } else {
       const body = await res.json().catch(() => ({}))
       setError(body.error || "Save failed. Try again.")
@@ -674,17 +674,20 @@ export default function AdminPage() {
   }
 
   async function handleDelete(id: string) {
-    const res = await fetch(`/api/admin/projects/${id}`, {
+    setProjects((prev) => prev.filter((p) => p.id !== id))
+    fetch(`/api/admin/projects/${id}`, {
       method: "DELETE",
       headers: { Authorization: `Bearer ${token}` },
     })
-    if (res.ok) fetchProjects(token)
   }
 
-  function handleFormSave() {
+  function handleFormSave(saved: GalleryProject) {
+    setProjects((prev) => {
+      const exists = prev.find((p) => p.id === saved.id)
+      return exists ? prev.map((p) => (p.id === saved.id ? saved : p)) : [saved, ...prev]
+    })
     setFormMode("closed")
     setEditingProject(null)
-    fetchProjects(token)
   }
 
   function handleFormCancel() {
