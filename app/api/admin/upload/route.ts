@@ -5,9 +5,10 @@ import { randomUUID } from "crypto"
 
 export const dynamic = "force-dynamic"
 
-const PASSWORD = process.env.ADMIN_PASSWORD || ""
+const PASSWORD = process.env.ADMIN_PASSWORD
 
 function checkAuth(req: Request): boolean {
+  if (!PASSWORD) return false
   return req.headers.get("authorization") === `Bearer ${PASSWORD}`
 }
 
