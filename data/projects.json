@@ -294,20 +294,6 @@
     "featured": true
   },
   {
-    "id": "commercial-hotel",
-    "title": "Hotel Exterior Renovation",
-    "location": "Salmon Arm, BC",
-    "city": "salmon-arm",
-    "category": "commercial",
-    "image": "/images/projects/commercial-hotel.jpg",
-    "imageX": 50,
-    "imageY": 50,
-    "material": "LUX Panel System · Stucco",
-    "type": "Commercial Envelope",
-    "year": 2023,
-    "featured": true
-  },
-  {
     "id": "kelowna-strata",
     "title": "Vernon College Housing",
     "location": "Vernon, BC",
