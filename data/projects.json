@@ -64,10 +64,10 @@
     "image": "/images/projects/residential-luxury.jpg",
     "imageX": 50,
     "imageY": 50,
-    "material": "Metal Cladding · Longboard",
+    "material": "Metal Cladding, Lux random plank, cedar soffits ",
     "type": "Custom New Build",
     "year": 2024,
-    "featured": false
+    "featured": true
   },
   {
     "id": "okanagan-lakehouse",
